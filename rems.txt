@@ -1,0 +1,6 @@
+1. to can do import/export in nodeJs ==>> {
+    a- "type": "modules"
+    b- import '....js' => write extension (.js)
+}
+
+2. to write input args with destruct ==>> (parent, {logInInput: {email, password}})

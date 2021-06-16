@@ -6,6 +6,7 @@
   "scripts": {
     "server": "nodemon app.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mandor99/social_meida-merng-clone.git"
@@ -22,6 +23,7 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.0",
+    "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.13"
   },

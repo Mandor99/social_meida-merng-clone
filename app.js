@@ -1,8 +1,8 @@
 import { ApolloServer, PubSub } from 'apollo-server';
 import mongoose from 'mongoose';
 import env from 'dotenv';
-import typeDefs from './graphql/typeDefs';
-import resolvers from './graphql/resolvers/resolvers';
+import typeDefs from './graphql/typeDefs.js';
+import resolvers from './graphql/resolvers/resolvers.js';
 
 env.config();
 const pubSub = new PubSub();
