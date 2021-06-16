@@ -1,6 +1,24 @@
 1. to can do import/export in nodeJs ==>> {
     a- "type": "modules"
     b- import '....js' => write extension (.js)
+    c- in models ==>> {
+        a. import mongoose from 'mongoose'
+        b. const {Schema, model} = mongoose
+    }
 }
 
 2. to write input args with destruct ==>> (parent, {logInInput: {email, password}})
+
+3. to get token with GQL to verify auth ==>> {
+    a. token is in ==>> req.headers.authorization
+    b. user ==>> jwt.verify(token, SECRET_KEY)
+    c. return user
+    ** if errors ** ==>> AuthenticationError('invalid/expired token')
+    ** if errors (no token) ** ==>> throw new Error('Authorization header must be provided')
+    ** don't forget to provide the token in the header in 'Authorization' **
+}
+** Authentication ** ==>> to logiN & AUTH
+** Authorization ** ==>> to get token and give the permission
+
+4. return Post === return {...Post._doc }
+5. return Post === return (Post)

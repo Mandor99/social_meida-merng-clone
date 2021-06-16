@@ -8,6 +8,13 @@ const typeDefs = gql`
 		createdAt: String!
 		token: String!
 	}
+	type Post {
+		userId: ID!
+		username: String!
+		email: String!
+		body: String!
+		createdAt: String
+	}
 	input registerInput {
 		username: String!
 		email: String!
@@ -22,11 +29,14 @@ const typeDefs = gql`
 		id: String!
 	}
 	type Query {
-		getPosts: [test]
+		getPosts: [Post]
+		getPost(id: ID!): Post
 	}
 	type Mutation {
 		register(registerInput: registerInput): User!
 		logIn(logInInput: logInInput!): User!
+		createPost(body: String!): Post
+		deletePost(id: ID!): String
 	}
 `;
 

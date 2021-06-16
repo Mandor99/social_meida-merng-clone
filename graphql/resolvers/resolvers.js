@@ -1,13 +1,16 @@
 import userResolver from './users.js';
-const testArr = [{ id: '1' }, { id: '2' }, { id: '3' }];
+import postResolver from './posts.js';
+// const testArr = [{ id: '1' }, { id: '2' }, { id: '3' }];
+// getPosts: () => {
+// 	return testArr;
+// },
 const resolvers = {
 	Query: {
-		getPosts: () => {
-			return testArr;
-		},
+		...postResolver.Query,
 	},
 	Mutation: {
 		...userResolver.Mutation,
+		...postResolver.Mutation,
 	},
 	// Subscription: {}
 };

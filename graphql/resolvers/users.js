@@ -3,19 +3,20 @@ import {
 	registerValidation,
 	logInValidation,
 } from '../../middlewares/validator.js';
-import UserDB from '../../models/Users.model.js';
+import UserDB from '../../models/UsersModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 const generateToken = (user) => {
 	return jwt.sign(
 		{
+			//this data because i need it in authGuard
 			username: user.username,
 			email: user.email,
 			userId: user._id,
 		},
 		process.env.SECRET_TOKEN,
-		{ expiresIn: '1h' },
+		{ expiresIn: '24h' },
 	);
 };
 
