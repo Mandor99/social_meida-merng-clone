@@ -10,8 +10,10 @@ const postSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'user',
 	},
-	// comments: [{ username: String, body: String, createdAt: String }],
-	// likes: [{ username: String, createdAt: String }],
+	comments: [
+		{ username: String, email: String, body: String, createdAt: String },
+	],
+	likes: [{ username: String, email: String, createdAt: String }],
 });
 
 const PostDB = model('post', postSchema);

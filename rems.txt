@@ -22,3 +22,8 @@
 
 4. return Post === return {...Post._doc }
 5. return Post === return (Post)
+
+6. Mutative ==>> change the original [] => [].unshift() => to add at the first of [] and save the new length. [push/ splice/ length/ unshift]
+6. UnMutative ==>> NOT change the original [] => [...spread] => save the original length of [] and can make a new []. [spread/ concat]
+
+7. in mongoose v.5 use []findIndex(x.id) not []findIndex(x._id) ==>> .id != ._id

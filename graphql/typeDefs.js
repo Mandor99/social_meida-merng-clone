@@ -14,6 +14,23 @@ const typeDefs = gql`
 		email: String!
 		body: String!
 		createdAt: String
+		comments: [Comment]!
+		likes: [Like]!
+		likesCount: Int!
+		commentsCount: Int!
+	}
+	type Comment {
+		id: ID!
+		username: String!
+		email: String!
+		createdAt: String!
+		body: String!
+	}
+	type Like {
+		id: ID!
+		username: String!
+		email: String!
+		createdAt: String!
 	}
 	input registerInput {
 		username: String!
@@ -37,6 +54,12 @@ const typeDefs = gql`
 		logIn(logInInput: logInInput!): User!
 		createPost(body: String!): Post
 		deletePost(id: ID!): String
+		createComment(postId: ID!, body: String!): Post!
+		deleteComment(postId: ID!, commentId: ID!): String!
+		createLike(postId: ID!): Post
+	}
+	type Subscription {
+		newPost: Post!
 	}
 `;
 
