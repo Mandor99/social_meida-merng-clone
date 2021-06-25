@@ -1,0 +1,31 @@
+.postCard {
+    margin-bottom: 1.5rem !important;
+}
+.loadingTxt {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.headTitle {
+    display: block !important;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 1.5rem auto !important;
+}
+.mr {
+    margin-right: .25rem !important;
+}
+.ml {
+    margin-left: .25rem !important;
+}
+.ui.two.buttons>.button {
+    width: 45% !important
+}
+.mt-max {
+    margin-top: 3rem;
+}
+.w-60-center {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
