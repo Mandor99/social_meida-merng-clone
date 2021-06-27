@@ -9,7 +9,8 @@ const typeDefs = gql`
 		token: String!
 	}
 	type Post {
-		userId: ID!
+		id: ID!
+		userId: String!
 		username: String!
 		email: String!
 		body: String!
@@ -41,9 +42,6 @@ const typeDefs = gql`
 	input logInInput {
 		email: String!
 		password: String!
-	}
-	type test {
-		id: String!
 	}
 	type Query {
 		getPosts: [Post]

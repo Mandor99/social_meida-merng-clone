@@ -22,6 +22,7 @@ export const logInValidation = (data) => {
 	const schema = joi.object({
 		email: joi
 			.string()
+			.email()
 			.required()
 			.email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
 		password: joi

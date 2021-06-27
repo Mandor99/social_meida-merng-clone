@@ -34,12 +34,12 @@ const userResolver = {
 				confirmPassword,
 			});
 			if (error) {
-				console.log(error);
+				// console.log(error);
 				throw new UserInputError('failed to signUp', {
-					validationErrors: error.message,
+					validationErrors: { error },
 				});
 			} else {
-				console.log(value);
+				// console.log(value);
 				// auth user
 				const checkEmail = await UserDB.findOne({ email: value.email });
 				if (checkEmail) {
@@ -71,10 +71,12 @@ const userResolver = {
 		logIn: async (_, { logInInput: { email, password } }) => {
 			const { error, value } = logInValidation({ email, password });
 			if (error) {
+				// console.log({ error });
 				throw new UserInputError('failed to logIn', {
-					validationErrors: error.message,
+					validationErrors: { error },
 				});
 			} else {
+				// console.log(value);
 				const user = await UserDB.findOne({ email: value.email });
 				if (user) {
 					const correctPassword = await bcrypt.compare(

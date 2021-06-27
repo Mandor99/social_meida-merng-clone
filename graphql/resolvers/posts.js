@@ -5,7 +5,7 @@ import PostDB from '../../models/PostsModel.js';
 const postResolver = {
 	Query: {
 		getPosts: async (_, __, context) => {
-			console.log(context);
+			// console.log(context);
 			try {
 				const Posts = await PostDB.find({}).sort({ createdAt: -1 });
 				return Posts;
@@ -23,7 +23,7 @@ const postResolver = {
 		},
 	},
 	Mutation: {
-		createPost: async (_, { body }, { context: { req, pubSub } }) => {
+		createPost: async (_, { body }, { req, pubSub }) => {
 			//check if he is a user
 			const userToken = await postAuthGuard({ req });
 
@@ -79,7 +79,7 @@ const postResolver = {
 					const liked = await post.likes.find(
 						(like) => like.email === userToken.email,
 					);
-					console.log(liked);
+					// console.log(liked);
 					if (liked !== undefined) {
 						//if true ==>> unlike it
 						post.likes = await post.likes.filter(
