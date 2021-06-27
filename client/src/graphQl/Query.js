@@ -48,13 +48,30 @@ export const LogInMutation = gql`
 	}
 `;
 
-// export const LogInMutation = gql`
-// 	mutation getUser($email: String!, $password: String!) {
-// 		logIn(logInInput: { email: $email, password: $password }) {
-// 			id
-// 			token
-// 			username
-// 			email
-// 		}
-// 	}
-// `;
+export const createPostMutation = gql`
+	mutation createPost($body: String!) {
+		createPost(body: $body) {
+			id
+			# userId
+			username
+			email
+			body
+			commentsCount
+			likesCount
+			createdAt
+			comments {
+				id
+				username
+				email
+				body
+				createdAt
+			}
+			likes {
+				id
+				username
+				email
+				createdAt
+			}
+		}
+	}
+`;

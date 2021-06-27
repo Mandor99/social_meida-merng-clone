@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Message } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
 import { LogInMutation } from '../graphQl/Query';
+import { useAuth } from '../context/auth';
 
 function LogIn(props) {
+	const { logIn } = useAuth();
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [validationErr, setValidationErr] = useState({});
-	const [authErr, setAuthErr] = useState({});
+	// const [authErr, setAuthErr] = useState({});
 	const [getUser, { loading }] = useMutation(LogInMutation, {
-		update(cache, result) {
+		update(cache, { data: { logIn: userData } }) {
+			// console.log(data);
+			logIn(userData);
 			props.history.push('/');
 		},
 		onError(errors) {

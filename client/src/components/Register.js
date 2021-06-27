@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Message } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
 import { RegisterMutation } from '../graphQl/Query';
+import { useAuth } from '../context/auth';
 
 function Register(props) {
+	const { logIn } = useAuth();
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [validationErr, setValidationErr] = useState({});
 	const [addUser, { loading }] = useMutation(RegisterMutation, {
-		update(cache, result) {
+		update(cache, { data: { register } }) {
+			logIn(register);
 			props.history.push('/');
 		},
 		onError(errors) {
